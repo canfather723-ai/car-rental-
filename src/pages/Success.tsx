@@ -8,32 +8,32 @@ export default function Success() {
   const sessionId = searchParams.get('session_id');
 
   return (
-    <div className="bg-black min-h-screen flex items-center justify-center p-6 text-white pt-24">
+    <div className="bg-white min-h-screen flex items-center justify-center p-6 text-brand-dark pt-24">
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="max-w-md w-full bg-[#111] border border-white/10 p-12 text-center rounded-sm"
+        className="max-w-md w-full bg-white border border-gray-100 p-12 text-center rounded-3xl shadow-2xl"
       >
-        <div className="w-20 h-20 bg-white/5 flex items-center justify-center rounded-full mx-auto mb-8 border border-white/10">
-          <CheckCircle2 className="w-10 h-10 text-white" />
+        <div className="w-20 h-20 bg-green-50 flex items-center justify-center rounded-full mx-auto mb-8 border border-green-100">
+          <CheckCircle2 className="w-10 h-10 text-green-600" />
         </div>
         
-        <h1 className="text-4xl font-sans font-medium mb-4 tracking-tighter leading-tight">TRANSACTION COMPLETE</h1>
-        <p className="text-white/40 mb-10 leading-relaxed font-light">
-          Your reservation has been confirmed. Our team will contact you shortly to finalize the delivery details.
-          {sessionId && <span className="block mt-4 text-[10px] uppercase font-mono tracking-widest opacity-50">Ref: {sessionId}</span>}
+        <h1 className="text-3xl font-bold mb-4 tracking-tight leading-tight text-[#1A5F6B]">RESERVATION CONFIRMED</h1>
+        <p className="text-gray-400 mb-10 leading-relaxed font-light">
+          Your transaction has been finalized. Excellence awaits. Our team will contact you shortly to coordinate your experience.
+          {sessionId && <span className="block mt-4 text-[10px] uppercase font-bold tracking-widest opacity-50">Ref: {sessionId}</span>}
         </p>
 
         <div className="space-y-4">
           <Link
             to="/inventory"
-            className="block w-full py-4 bg-white text-black text-xs font-bold uppercase tracking-widest hover:bg-white/90 transition-colors rounded-sm"
+            className="block w-full py-5 bg-brand-teal text-white font-bold uppercase text-xs tracking-widest hover:bg-[#2598a3] transition-all rounded-xl shadow-lg shadow-brand-teal/20"
           >
             Manage Bookings
           </Link>
           <Link
             to="/"
-            className="flex items-center justify-center gap-2 w-full py-4 border border-white/10 text-white/60 text-xs font-bold uppercase tracking-widest hover:bg-white/5 transition-colors rounded-sm"
+            className="flex items-center justify-center gap-2 w-full py-5 border border-gray-100 text-gray-400 text-xs font-bold uppercase tracking-widest hover:bg-gray-50 transition-all rounded-xl"
           >
            Return Home <ArrowRight className="w-4 h-4" />
           </Link>

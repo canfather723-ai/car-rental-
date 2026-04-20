@@ -82,11 +82,11 @@ export default function CarDetail() {
   };
 
   return (
-    <div className="bg-black min-h-screen pt-24 pb-20 overflow-x-hidden">
+    <div className="bg-white min-h-screen pt-24 pb-20 overflow-x-hidden text-brand-dark">
       <div className="max-w-7xl mx-auto px-6">
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-white/40 hover:text-white transition-colors mb-8 group"
+          className="flex items-center gap-2 text-gray-400 hover:text-brand-teal transition-colors mb-8 group"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
           <span className="text-xs uppercase tracking-widest font-bold">Back to Inventory</span>
@@ -99,17 +99,17 @@ export default function CarDetail() {
             animate={{ opacity: 1, x: 0 }}
             className="sticky top-32"
           >
-            <div className="aspect-[4/3] overflow-hidden rounded-sm border border-white/10 group">
+            <div className="aspect-[4/3] overflow-hidden rounded-xl border border-gray-100 shadow-xl group">
               <img
                 src={car.image}
                 alt={car.model}
-                className="w-full h-full object-cover grayscale-[0.2] transition-all duration-1000"
+                className="w-full h-full object-cover transition-all duration-1000"
                 referrerPolicy="no-referrer"
               />
             </div>
             <div className="mt-8 grid grid-cols-4 gap-4">
               {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="aspect-square bg-white/5 border border-white/5 rounded-sm" />
+                <div key={i} className="aspect-square bg-gray-50 border border-gray-100 rounded-lg" />
               ))}
             </div>
           </motion.div>
@@ -117,124 +117,110 @@ export default function CarDetail() {
           {/* Right: Details */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
+            animate={{ opacity: 1, y: 0 }}
           >
-            <span className="text-[10px] uppercase tracking-[0.5em] text-white/30 block mb-4">{car.category}</span>
-            <h1 className="text-5xl md:text-7xl font-sans font-medium tracking-tighter mb-4 text-white">
-              {car.make} <span className="text-white/40">{car.model}</span>
+            <span className="text-brand-teal font-bold uppercase tracking-[0.3em] text-xs mb-4 block">{car.category}</span>
+            <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-4 text-[#1A5F6B]">
+              {car.make} <span className="font-medium opacity-60 italic">{car.model}</span>
             </h1>
             <div className="flex gap-4 mb-8">
-               <span className="px-3 py-1 bg-white/5 border border-white/10 text-[10px] text-white/60 tracking-widest uppercase">{car.year} Model</span>
-               <span className="px-3 py-1 bg-white/5 border border-white/10 text-[10px] text-white/60 tracking-widest uppercase">Verified Condition</span>
+               <span className="px-3 py-1 bg-gray-50 border border-gray-100 text-[10px] text-gray-500 font-bold tracking-widest uppercase">{car.year} Model</span>
+               <span className="px-3 py-1 bg-green-50 border border-green-100 text-[10px] text-green-600 font-bold tracking-widest uppercase">Verified Condition</span>
             </div>
 
             <div className="mb-10 min-h-[60px]">
               {aiDescription ? (
-                  <p className="text-lg text-white/60 leading-relaxed font-light italic border-l-2 border-white/20 pl-6">
+                  <p className="text-lg text-gray-500 leading-relaxed font-light italic border-l-4 border-brand-teal pl-6">
                     "{aiDescription}"
                   </p>
               ) : (
-                  <div className="h-2 w-32 bg-white/5 animate-pulse rounded-full" />
+                  <div className="h-2 w-32 bg-gray-100 animate-pulse rounded-full" />
               )}
             </div>
 
             <div className="grid grid-cols-2 gap-8 mb-12">
                 <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-sm border border-white/5">
-                        <Gauge className="text-white/60 w-6 h-6" />
+                    <div className="w-12 h-12 bg-gray-50 flex items-center justify-center rounded-lg border border-gray-100">
+                        <Gauge className="text-brand-teal w-6 h-6" />
                     </div>
                     <div>
-                        <span className="text-[10px] uppercase text-white/30 block">Top Speed</span>
-                        <span className="text-sm font-mono text-white">{car.specs.topSpeed}</span>
+                        <span className="text-[10px] uppercase text-gray-400 font-bold block">Top Speed</span>
+                        <span className="text-sm font-bold text-brand-dark">{car.specs.topSpeed}</span>
                     </div>
                 </div>
                 <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-sm border border-white/5">
-                        <Zap className="text-white/60 w-6 h-6" />
+                    <div className="w-12 h-12 bg-gray-50 flex items-center justify-center rounded-lg border border-gray-100">
+                        <Zap className="text-brand-teal w-6 h-6" />
                     </div>
                     <div>
-                        <span className="text-[10px] uppercase text-white/30 block">0-60 MPH</span>
-                        <span className="text-sm font-mono text-white">{car.specs.acceleration}</span>
+                        <span className="text-[10px] uppercase text-gray-400 font-bold block">0-60 MPH</span>
+                        <span className="text-sm font-bold text-brand-dark">{car.specs.acceleration}</span>
                     </div>
                 </div>
                 <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-sm border border-white/5">
-                        <Navigation className="text-white/60 w-6 h-6" />
+                    <div className="w-12 h-12 bg-gray-50 flex items-center justify-center rounded-lg border border-gray-100">
+                        <Navigation className="text-brand-teal w-6 h-6" />
                     </div>
                     <div>
-                        <span className="text-[10px] uppercase text-white/30 block">Engine</span>
-                        <span className="text-sm font-mono text-white">{car.specs.engine}</span>
+                        <span className="text-[10px] uppercase text-gray-400 font-bold block">Engine</span>
+                        <span className="text-sm font-bold text-brand-dark truncate max-w-[120px]">{car.specs.engine}</span>
                     </div>
                 </div>
                 <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-sm border border-white/5">
-                        <Wind className="text-white/60 w-6 h-6" />
+                    <div className="w-12 h-12 bg-gray-50 flex items-center justify-center rounded-lg border border-gray-100">
+                        <Wind className="text-brand-teal w-6 h-6" />
                     </div>
                     <div>
-                        <span className="text-[10px] uppercase text-white/30 block">Transmission</span>
-                        <span className="text-sm font-mono text-white">{car.specs.transmission}</span>
+                        <span className="text-[10px] uppercase text-gray-400 font-bold block">Transmission</span>
+                        <span className="text-sm font-bold text-brand-dark">{car.specs.transmission}</span>
                     </div>
                 </div>
             </div>
 
-            <div className="space-y-6 pt-12 border-t border-white/10">
+            <div className="space-y-6 pt-12 border-t border-gray-100">
               <div className="flex items-center justify-between mb-2">
-                 <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">Payment Infrastructure</span>
+                 <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400">Payment Infrastructure</span>
                  <div className="flex gap-3 items-center">
-                    {/* Stripe Stylized Badge */}
-                    <div className="flex items-center gap-2 px-2.5 py-1.5 bg-white/[0.03] border border-white/10 rounded-sm group hover:border-white/20 transition-colors">
-                       <div className="w-4 h-4 bg-[#635BFF] flex items-center justify-center rounded-[2px] text-[8px] font-black text-white shadow-[0_0_10px_rgba(99,91,255,0.3)]">S</div>
-                       <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/50 group-hover:text-white/80">Stripe</span>
+                    <div className="flex items-center gap-2 px-2.5 py-1.5 bg-gray-50 border border-gray-100 rounded-md">
+                       <div className="w-4 h-4 bg-[#635BFF] flex items-center justify-center rounded-[2px] text-[8px] font-black text-white">S</div>
+                       <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400">Stripe</span>
                     </div>
-                    {/* MoMo Stylized Badge */}
-                    <div className="flex items-center gap-2 px-2.5 py-1.5 bg-white/[0.03] border border-white/10 rounded-sm group hover:border-white/20 transition-colors">
-                       <div className="w-4 h-4 bg-[#FFCC00] flex items-center justify-center rounded-full text-[8px] font-black text-[#003366] shadow-[0_0_10px_rgba(255,204,0,0.2)]">M</div>
-                       <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/50 group-hover:text-white/80">MoMo</span>
+                    <div className="flex items-center gap-2 px-2.5 py-1.5 bg-gray-50 border border-gray-100 rounded-md">
+                       <div className="w-4 h-4 bg-[#FFCC00] flex items-center justify-center rounded-full text-[8px] font-black text-[#003366]">M</div>
+                       <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400">MoMo</span>
                     </div>
-                    {/* Security Badge */}
-                    <div className="h-4 w-[1px] bg-white/10 mx-1" />
-                    <Check className="w-3 h-3 text-white/30" />
+                    <Check className="w-3 h-3 text-green-500" />
                  </div>
               </div>
 
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between border-t border-gray-100 pt-12">
                 <div>
-                  <span className="text-xs uppercase text-white/40 block tracking-widest text-center mb-1">Flexible Payment</span>
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                    <span className="text-[10px] text-white/60 uppercase tracking-widest font-bold">Mobile Money Supported</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between border-t border-white/10 pt-12">
-                <div>
-                  <span className="text-xs uppercase text-white/40 block tracking-widest">Daily Rental</span>
-                  <span className="text-3xl font-mono text-white">${car.priceRent}</span>
+                  <span className="text-xs font-bold uppercase text-gray-400 block tracking-widest mb-1">Daily Rental</span>
+                  <span className="text-3xl font-bold text-[#1A5F6B]">₵{car.priceRent.toLocaleString()}</span>
                 </div>
                 <button
                   disabled={loading}
                   onClick={() => handleAction('rent')}
-                  className="px-12 py-5 bg-white text-black font-bold uppercase text-xs tracking-[0.2em] hover:bg-white/90 transition-all rounded-sm disabled:opacity-50"
+                  className="px-12 py-5 bg-brand-teal text-white font-bold uppercase text-xs tracking-widest hover:bg-[#2598a3] transition-all rounded-lg disabled:opacity-50 shadow-lg shadow-brand-teal/20"
                 >
                   {loading ? 'Processing...' : 'Reserve for Rent'}
                 </button>
               </div>
 
               {/* Purchase Block */}
-              <div className="p-8 bg-white/5 rounded-sm border border-white/5">
+              <div className="p-8 bg-gray-50 rounded-xl border border-gray-100">
                 <div className="flex items-center justify-between mb-8">
-                  <h3 className="text-sm font-bold uppercase tracking-[0.4em] text-white/60 font-sans">Ownership Options</h3>
-                  <div className="flex bg-black p-1 rounded-sm border border-white/10">
+                  <h3 className="text-sm font-bold uppercase tracking-widest text-gray-400">Ownership Options</h3>
+                  <div className="flex bg-white p-1 rounded-lg border border-gray-200">
                     <button 
                       onClick={() => setPurchaseMode('full')}
-                      className={`px-4 py-2 text-[10px] uppercase tracking-widest font-bold transition-all ${purchaseMode === 'full' ? 'bg-white text-black' : 'text-white/40 hover:text-white'}`}
+                      className={`px-4 py-2 text-[10px] uppercase tracking-widest font-bold transition-all rounded-md ${purchaseMode === 'full' ? 'bg-[#1A5F6B] text-white shadow-md' : 'text-gray-400 hover:text-brand-dark'}`}
                     >
                       Buy Now
                     </button>
                     <button 
                       onClick={() => setPurchaseMode('installment')}
-                      className={`px-4 py-2 text-[10px] uppercase tracking-widest font-bold transition-all ${purchaseMode === 'installment' ? 'bg-white text-black' : 'text-white/40 hover:text-white'}`}
+                      className={`px-4 py-2 text-[10px] uppercase tracking-widest font-bold transition-all rounded-md ${purchaseMode === 'installment' ? 'bg-[#1A5F6B] text-white shadow-md' : 'text-gray-400 hover:text-brand-dark'}`}
                     >
                       Installments
                     </button>
@@ -244,13 +230,13 @@ export default function CarDetail() {
                 {purchaseMode === 'full' ? (
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="text-xs uppercase text-white/40 block tracking-widest mb-1">Full Acquisition</span>
-                      <span className="text-4xl font-mono text-white tracking-tighter">${car.priceBuy.toLocaleString()}</span>
+                      <span className="text-xs font-bold uppercase text-gray-400 block tracking-widest mb-1">Full Acquisition</span>
+                      <span className="text-4xl font-bold text-[#1A5F6B] tracking-tight">₵{car.priceBuy.toLocaleString()}</span>
                     </div>
                     <button
                       disabled={loading}
                       onClick={() => handleAction('buy')}
-                      className="px-12 py-5 border border-white/20 text-white font-bold uppercase text-xs tracking-[0.2em] hover:bg-white/10 transition-all rounded-sm disabled:opacity-50"
+                      className="px-12 py-5 border-2 border-[#1A5F6B] text-[#1A5F6B] font-bold uppercase text-xs tracking-widest hover:bg-[#1A5F6B] hover:text-white transition-all rounded-lg disabled:opacity-50"
                     >
                       {loading ? 'Processing...' : 'Buy Now'}
                     </button>
@@ -262,7 +248,7 @@ export default function CarDetail() {
                         <button
                           key={m}
                           onClick={() => setInstallmentMonths(m as any)}
-                          className={`flex-1 py-3 text-[10px] uppercase border transition-all ${installmentMonths === m ? 'border-white text-white bg-white/10' : 'border-white/10 text-white/40 hover:border-white/30'}`}
+                          className={`flex-1 py-3 text-[10px] uppercase font-bold border transition-all rounded-lg ${installmentMonths === m ? 'border-[#1A5F6B] text-[#1A5F6B] bg-[#1A5F6B]/5' : 'border-gray-200 text-gray-400 hover:border-[#1A5F6B]/50'}`}
                         >
                           {m} Months
                         </button>
@@ -271,14 +257,14 @@ export default function CarDetail() {
                     
                     <div className="flex items-center justify-between">
                       <div>
-                        <span className="text-xs uppercase text-white/40 block tracking-widest mb-1">Monthly Payment</span>
-                        <span className="text-4xl font-mono text-white tracking-tighter">${monthlyPayment.toLocaleString()}</span>
-                        <span className="text-[10px] text-white/20 block mt-1 uppercase tracking-widest italic">10% fixed APR included</span>
+                        <span className="text-xs font-bold uppercase text-gray-400 block tracking-widest mb-1">Monthly Payment</span>
+                        <span className="text-4xl font-bold text-[#1A5F6B] tracking-tight">₵{monthlyPayment.toLocaleString()}</span>
+                        <span className="text-[10px] text-gray-400 block mt-1 font-bold uppercase tracking-widest italic">10% fixed APR included</span>
                       </div>
                       <button
                         disabled={loading}
                         onClick={() => handleAction('installment')}
-                        className="px-10 py-5 bg-white text-black font-bold uppercase text-xs tracking-[0.2em] hover:bg-white/90 transition-all rounded-sm disabled:opacity-50"
+                        className="px-10 py-5 bg-brand-orange text-white font-bold uppercase text-xs tracking-widest hover:bg-[#d9561a] transition-all rounded-lg disabled:opacity-50 shadow-lg shadow-brand-orange/20"
                       >
                         {loading ? 'Processing...' : 'Start Financing'}
                       </button>

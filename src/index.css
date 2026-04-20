@@ -5,11 +5,15 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", serif;
   --font-mono: "JetBrains Mono", monospace;
+  
+  --color-brand-teal: #2CAEBA;
+  --color-brand-orange: #F26722;
+  --color-brand-dark: #0D1117;
 }
 
 @layer base {
   body {
-    @apply bg-black text-white antialiased;
+    @apply bg-white text-brand-dark antialiased;
   }
 }
 

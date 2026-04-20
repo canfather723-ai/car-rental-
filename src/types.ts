@@ -6,7 +6,11 @@ export interface Car {
   priceBuy: number;
   priceRent: number;
   image: string;
-  category: 'Luxury' | 'Sports' | 'SUV' | 'Electric';
+  category: 'Luxury' | 'Sports' | 'SUV' | 'Electric' | 'Economy';
+  location: string;
+  seats: number;
+  luggage: number;
+  doors: number;
   description: string;
   specs: {
     engine: string;

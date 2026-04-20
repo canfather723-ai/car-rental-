@@ -3,87 +3,86 @@ import { Car } from './types';
 export const CAR_DATA: Car[] = [
   {
     id: '1',
-    make: 'Porsche',
-    model: '911 Carrera',
-    year: 2024,
-    priceBuy: 120000,
-    priceRent: 450,
-    image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=1200',
-    category: 'Sports',
-    description: 'The definitive sports car experiences. Unmatched balance and driving dynamics.',
-    specs: {
-      engine: '3.0L Twin-Turbo Flat-6',
-      acceleration: '4.0s (0-60 mph)',
-      topSpeed: '182 mph',
-      transmission: '8-speed PDK'
-    }
-  },
-  {
-    id: '2',
     make: 'Mercedes-Benz',
     model: 'S-Class',
     year: 2024,
-    priceBuy: 114000,
-    priceRent: 380,
+    priceBuy: 180000,
+    priceRent: 6600,
     image: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&q=80&w=1200',
     category: 'Luxury',
+    location: 'Greater Accra',
+    seats: 4,
+    luggage: 4,
+    doors: 4,
     description: 'The pinnacle of automotive luxury and technological sophistication.',
     specs: {
       engine: '3.0L Inline-6 Turbo',
       acceleration: '4.8s (0-60 mph)',
       topSpeed: '155 mph',
-      transmission: '9G-TRONIC'
+      transmission: 'Automatic'
+    }
+  },
+  {
+    id: '2',
+    make: 'Toyota',
+    model: 'RAV 4',
+    year: 2024,
+    priceBuy: 45000,
+    priceRent: 1050,
+    image: 'https://images.unsplash.com/photo-1590362891991-f776e747a518?auto=format&fit=crop&q=80&w=1200',
+    category: 'SUV',
+    location: 'Greater Accra',
+    seats: 5,
+    luggage: 3,
+    doors: 4,
+    description: 'A versatile and reliable SUV for all your urban and rural adventures.',
+    specs: {
+      engine: '2.5L 4-Cylinder',
+      acceleration: '8.1s (0-60 mph)',
+      topSpeed: '120 mph',
+      transmission: 'Automatic'
     }
   },
   {
     id: '3',
-    make: 'Tesla',
-    model: 'Model S Plaid',
+    make: 'Kia',
+    model: 'Sorento',
     year: 2024,
-    priceBuy: 89000,
-    priceRent: 320,
-    image: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&q=80&w=1200',
-    category: 'Electric',
-    description: 'Beyond ludricrous. The quickest accelerating car in production today.',
+    priceBuy: 48000,
+    priceRent: 1050,
+    image: 'https://images.unsplash.com/photo-1623156637375-3733075b8e96?auto=format&fit=crop&q=80&w=1200',
+    category: 'SUV',
+    location: 'Greater Accra',
+    seats: 7,
+    luggage: 5,
+    doors: 4,
+    description: 'Spacious 3-row SUV perfect for group travel and families.',
     specs: {
-      engine: 'Tri-Motor AWD',
-      acceleration: '1.99s (0-60 mph)',
-      topSpeed: '200 mph',
-      transmission: 'Single Speed'
+      engine: '2.5L Turbo 4-Cylinder',
+      acceleration: '7.4s (0-60 mph)',
+      topSpeed: '130 mph',
+      transmission: 'Automatic'
     }
   },
   {
     id: '4',
-    make: 'Range Rover',
-    model: 'Autobiography',
+    make: 'Honda',
+    model: 'CRV',
     year: 2024,
-    priceBuy: 141000,
-    priceRent: 500,
-    image: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&q=80&w=1200',
+    priceBuy: 42000,
+    priceRent: 1050,
+    image: 'https://images.unsplash.com/photo-1594502184342-2e12f877aa73?auto=format&fit=crop&q=80&w=1200',
     category: 'SUV',
-    description: 'Commanding presence and peerless refinement in every terrain.',
+    location: 'Greater Accra',
+    seats: 5,
+    luggage: 5,
+    doors: 4,
+    description: 'Refined performance and advanced safety features in a compact SUV.',
     specs: {
-      engine: '4.4L V8 Twin Turbo',
-      acceleration: '4.4s (0-60 mph)',
-      topSpeed: '155 mph',
-      transmission: '8-speed Automatic'
-    }
-  },
-    {
-    id: '5',
-    make: 'Lamborghini',
-    model: 'Huracán STO',
-    year: 2024,
-    priceBuy: 330000,
-    priceRent: 1200,
-    image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&q=80&w=1200',
-    category: 'Sports',
-    description: 'A track-focused beast brought to the road. Built for pure performance.',
-    specs: {
-      engine: '5.2L V10',
-      acceleration: '3.0s (0-60 mph)',
-      topSpeed: '193 mph',
-      transmission: '7-speed LDF'
+      engine: '1.5L Turbo 4-Cylinder',
+      acceleration: '7.8s (0-60 mph)',
+      topSpeed: '124 mph',
+      transmission: 'Automatic'
     }
   }
 ];

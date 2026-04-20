@@ -1,8 +1,8 @@
-import { StrictMode, Key } from 'react';
+import { Key } from 'react';
 import { motion } from 'motion/react';
 import { Car } from '../types';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { Heart, Users, Briefcase, Settings2, Layout, ArrowRight } from 'lucide-react';
 
 interface CarCardProps {
   car: Car;
@@ -16,49 +16,61 @@ export default function CarCard({ car, index }: CarCardProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1 }}
-      className="group relative bg-[#111] border border-white/5 overflow-hidden rounded-sm hover:border-white/20 transition-all duration-500"
+      className="bg-white group overflow-hidden border border-gray-100 hover:shadow-xl transition-all"
     >
-      <div className="aspect-[16/10] overflow-hidden">
+      <Link to={`/cars/${car.id}`} className="block relative aspect-[16/11] overflow-hidden bg-gray-50">
         <img
           src={car.image}
           alt={`${car.make} ${car.model}`}
-          className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           referrerPolicy="no-referrer"
         />
-      </div>
-      
+        <button className="absolute top-4 right-4 p-2 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-brand-orange transition-all shadow-sm">
+          <Heart className="w-4 h-4" />
+        </button>
+      </Link>
+
       <div className="p-6">
-        <div className="flex justify-between items-start mb-4">
-          <div>
-            <span className="text-[10px] uppercase tracking-[0.2em] text-white/40 block mb-1">{car.category}</span>
-            <h3 className="text-xl font-sans font-medium text-white tracking-tight">
-              {car.make} <span className="text-white/60">{car.model}</span>
-            </h3>
+        <div className="flex flex-col gap-1 mb-6">
+          <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">{car.location}</span>
+          <h3 className="text-xl font-bold text-[#1A5F6B] uppercase tracking-wide">
+            {car.make} <span className="font-semibold opacity-80">{car.model}</span>
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-4 gap-2 mb-8">
+          <div className="flex flex-col items-center gap-2 p-2 rounded-sm border border-gray-100 bg-gray-50/50">
+            <Users className="w-4 h-4 text-[#1A5F6B]/60" />
+            <span className="text-[10px] font-bold text-gray-400">{car.seats}</span>
           </div>
-          <div className="text-right">
-            <span className="text-xs text-white/40 uppercase tracking-widest block mb-1">From</span>
-            <span className="text-lg font-mono text-white">${car.priceRent}<span className="text-xs text-white/40">/day</span></span>
+          <div className="flex flex-col items-center gap-2 p-2 rounded-sm border border-gray-100 bg-gray-50/50">
+            <Briefcase className="w-4 h-4 text-[#1A5F6B]/60" />
+            <span className="text-[10px] font-bold text-gray-400">{car.luggage}</span>
+          </div>
+          <div className="flex flex-col items-center gap-2 p-2 rounded-sm border border-gray-100 bg-gray-50/50">
+            <Settings2 className="w-4 h-4 text-[#1A5F6B]/60" />
+            <span className="text-[9px] font-bold text-gray-400 capitalize truncate w-full text-center">{car.specs.transmission}</span>
+          </div>
+          <div className="flex flex-col items-center gap-2 p-2 rounded-sm border border-gray-100 bg-gray-50/50">
+            <Layout className="w-4 h-4 text-[#1A5F6B]/60" />
+            <span className="text-[10px] font-bold text-gray-400">{car.doors}</span>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 pb-6 border-b border-white/5 mb-6">
-          <div className="flex flex-col">
-            <span className="text-[10px] uppercase text-white/30 mb-1">Acceleration</span>
-            <span className="text-xs text-white/80">{car.specs.acceleration}</span>
-          </div>
-          <div className="flex flex-col">
-            <span className="text-[10px] uppercase text-white/30 mb-1">Top Speed</span>
-            <span className="text-xs text-white/80">{car.specs.topSpeed}</span>
-          </div>
+        <div className="grid grid-cols-2 gap-3 pt-6 border-t border-gray-100 mt-auto">
+          <Link 
+            to={`/cars/${car.id}`}
+            className="flex items-center justify-center gap-2 py-4 bg-brand-teal text-white text-[10px] font-bold uppercase tracking-widest rounded-xl hover:bg-[#2598a3] transition-all shadow-lg shadow-brand-teal/10"
+          >
+            Rent <ArrowRight className="w-3 h-3" />
+          </Link>
+          <Link 
+            to={`/cars/${car.id}`}
+            className="flex items-center justify-center gap-2 py-4 border-2 border-[#1A5F6B] text-[#1A5F6B] text-[10px] font-bold uppercase tracking-widest rounded-xl hover:bg-[#1A5F6B] hover:text-white transition-all"
+          >
+            Buy <Layout className="w-3 h-3" />
+          </Link>
         </div>
-
-        <Link
-          to={`/cars/${car.id}`}
-          className="flex items-center justify-between w-full group/btn text-white/60 hover:text-white transition-colors"
-        >
-          <span className="text-xs font-bold uppercase tracking-[0.2em]">View Details</span>
-          <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-        </Link>
       </div>
     </motion.div>
   );
